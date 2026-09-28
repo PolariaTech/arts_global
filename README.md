@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ARTS Global
 
-## Getting Started
+**Versión: 0.1.0** (estructura inicial · frontend mock)
 
-First, run the development server:
+Frontend de la plataforma de brokers **Aerospace Risk Transfer Solutions Inc.**  
+Next.js 16 · React 19 · TypeScript · Tailwind 4.
+
+Estructura inspirada en `polaria-wms-web` (organización por responsabilidad y módulos de dominio), adaptada al flujo ARTS. Independiente de Polaria WMS.
+
+## Inicio rápido
 
 ```bash
+npm install
+cp .env.example .env
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3002/login](http://localhost:3002/login).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Desarrollo en puerto **3002** |
+| `npm run build` | Build de producción |
+| `npm run start` | Servidor de producción (3002) |
+| `npm run lint` | ESLint |
 
-## Learn More
+## Organización (`src/`)
 
-To learn more about Next.js, take a look at the following resources:
+| Carpeta | Rol |
+|---------|-----|
+| `app/` | Rutas delgadas (App Router) |
+| `modules/` | Dominio: quote, policies, countries, users, claims, audit, reports… |
+| `components/` | UI reutilizable (shell, auth, tablas…) |
+| `config/` | Env, rutas, navegación por rol |
+| `constants/` | Marca, roles, coberturas |
+| `data/mock/` | Datos mock del libro de pólizas |
+| `services/` | Mock hoy · API mañana |
+| `hooks/`, `stores/`, `lib/`, `types/` | Estado, utils y tipos |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Lee `src/README.md` y `src/modules/README.md` antes de agregar código.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Regla de oro
 
-## Deploy on Vercel
+- `page.tsx` solo compone (< ~40 líneas).
+- Un archivo de UI/lógica ≈ un concern; partir al superar ~200–250 líneas.
+- Negocio en `modules/`; UI genérica en `components/`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Rutas previstas (mockup)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/login`
+- Producer: `/producer/panel`, `/producer/mis-polizas`, `/producer/cotizacion/paso-1`…`resultado`
+- Admin: `/admin/portafolio`, `/admin/registro`, `/admin/paises`, `/admin/usuarios`, …
+- Claims: `/claims/reclamaciones`
+- Auditor: `/auditor/auditoria`

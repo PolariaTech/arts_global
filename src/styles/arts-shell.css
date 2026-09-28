@@ -1,0 +1,277 @@
+/* Shell + sidebar — pixel-close al mockup ARTS Global */
+
+.arts-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  color: #14181f;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+}
+
+.arts-shell-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fa;
+}
+
+.arts-sb {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 230px;
+  flex: none;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0f1e33;
+  color: #fff;
+  border-right: 2px solid #c9a24a;
+  overflow-y: auto;
+  transition: margin-left 0.2s ease;
+}
+
+.arts-shell-collapsed .arts-sb {
+  margin-left: -232px;
+}
+
+.arts-sb-toggle {
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  z-index: 5;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #c9a24a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.15s ease;
+}
+
+.arts-sb-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.arts-sb-reopen {
+  position: fixed;
+  top: 16px;
+  left: 14px;
+  z-index: 30;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  background: #0f1e33;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(15, 30, 51, 0.25);
+}
+
+.arts-sb-reopen:hover {
+  background: #16283f;
+}
+
+.arts-shell-collapsed .arts-sb-reopen {
+  display: flex;
+}
+
+.arts-sb-brand {
+  position: relative;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid #2a3b54;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
+  padding-right: 48px;
+}
+
+.arts-sb-brand-name {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 14px;
+  color: #fff;
+}
+
+.arts-sb-brand-name em {
+  color: #c9a24a;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.arts-sb-user {
+  padding: 14px 18px;
+  border-bottom: 1px solid #2a3b54;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+.arts-sb-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #1b3252;
+  border: 1px solid #2a3b54;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #c9a24a;
+  flex: none;
+}
+
+.arts-sb-user-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.arts-sb-u-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.arts-sb-u-role {
+  font-size: 10.5px;
+  color: #8895a8;
+  letter-spacing: 0.03em;
+}
+
+.arts-sb-group {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6e7c90;
+  padding: 16px 18px 6px;
+  flex: none;
+}
+
+.arts-sb-nav {
+  flex: 1;
+  padding-bottom: 10px;
+}
+
+.arts-sb-link {
+  display: block;
+  padding: 9px 18px;
+  color: #d7dce3;
+  text-decoration: none;
+  font-size: 13.5px;
+  border-left: 3px solid transparent;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.arts-sb-link:hover {
+  background: #16283f;
+  color: #fff;
+}
+
+.arts-sb-link-active {
+  background: #16283f;
+  color: #fff;
+  border-left-color: #c9a24a;
+  font-weight: 600;
+}
+
+.arts-sb-version {
+  flex: none;
+  margin: auto 0 0;
+  padding: 10px 18px 4px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #6e7c90;
+  font-variant-numeric: tabular-nums;
+}
+
+.arts-sb-logout {
+  flex: none;
+  padding: 8px 18px 14px;
+  border-top: 1px solid #2a3b54;
+}
+
+.arts-sb-logout a {
+  display: block;
+  padding: 8px 0;
+  color: #8895a8;
+  text-decoration: none;
+  font-size: 12.5px;
+}
+
+.arts-sb-logout a:hover {
+  color: #c9a24a;
+}
+
+/* Reportes conversacionales */
+@keyframes arts-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes arts-dots {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.arts-msg-in {
+  animation: arts-msg-in 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.arts-dot {
+  animation: arts-dots 1.1s ease-in-out infinite;
+}
+
+.arts-dot-2 {
+  animation-delay: 0.18s;
+}
+
+.arts-dot-3 {
+  animation-delay: 0.36s;
+}
+
+/* Skeletons de carga */
+@keyframes arts-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.arts-skeleton {
+  animation: arts-skeleton-pulse 1.35s ease-in-out infinite;
+}

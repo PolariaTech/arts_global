@@ -1,11 +1,12 @@
 {
-  "name": "arts_global",
-  "version": "0.1.0",
+  "name": "arts-global",
+  "version": "1.20.2",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0 -p 3002",
+    "dev:webpack": "next dev -p 3002 --webpack",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3002",
     "lint": "eslint"
   },
   "dependencies": {

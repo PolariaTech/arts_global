@@ -1,0 +1,27 @@
+/** Tokens de marca ARTS Global (mockup). */
+export const BRAND = {
+  name: 'ARTS Global',
+  legalName: 'Aerospace Risk Transfer Solutions Inc.',
+  hq: 'Miami, FL',
+  platformLabelEs: 'Plataforma de Brokers',
+  platformLabelEn: 'Broker Platform',
+  colors: {
+    navy: '#0F1E33',
+    navyMid: '#1B3252',
+    navyHover: '#16283F',
+    navyLine: '#2A3B54',
+    gold: '#C9A24A',
+    goldHover: '#B98F35',
+    goldDeep: '#8A6E22',
+    surface: '#F7F8FA',
+    white: '#FFFFFF',
+    border: '#E0E4EA',
+    muted: '#6B7483',
+    text: '#14181F',
+    sidebarText: '#D7DCE3',
+    sidebarMuted: '#8895A8',
+    sidebarGroup: '#6E7C90',
+  },
+  sidebarWidthPx: 230,
+  fontFamily: "Archivo, 'Helvetica Neue', Arial, sans-serif",
+} as const;
